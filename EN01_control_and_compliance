@@ -1,0 +1,482 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#**Ejercicios de Aprendizaje**\n",
+        "\n",
+        "###**01_Controles y Cumplimiento**\n",
+        "\n",
+        "####¿La \"Llave del Chaco\" tiene actualmente este control activo?"
+      ],
+      "metadata": {
+        "id": "9GXrjE4yYgMh"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Evaluacion de controles**"
+      ],
+      "metadata": {
+        "id": "6uOa592Xinh1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "from IPython.display import display\n",
+        "\n",
+        "data_control = {\n",
+        "    \"Si\": [\"\", \"\", \"\", \"\", \"X\", \"\", \"\", \"X\", \"\", \"\", \"\", \"X\", \"x\", \"X\"],\n",
+        "    \"No\": [\"X\", \"X\", \"X\", \"X\", \"\", \"X\", \"X\", \"\", \"X\", \"X\", \"X\", \"\", \"\", \"\"],\n",
+        "    \"Control\": [\"Privilegio Mínimo\", \"Planes de recuperación ante desastres\", \"Políticas de contraseñas\", \"Separación de funciones\", \"Firewall\", \"Sistema de detección de intrusiones (IDS)\", \"Backups\", \"Software antivirus\", \"Monitorización, mantenimiento e intervención manuales para sistemas heredados\", \"Cifrado\", \"Sistema de gestión de contraseñas\", \"Cerraduras (oficinas, escaparate, almacén)\", \"Vigilancia por circuito cerrado de televisión (CCTV)\", \"Detección/prevención de incendios (alarma de incendios, sistema de rociadores, etc.)\"],\n",
+        "    \"Explicación\": [\"Actualmente, todos los empleados tienen acceso a los datos de los clientes; Los privilegios deben limitarse para reducir el riesgo de una brecha.\", \"No existen planes de recuperación ante desastres. Estas deben implementarse para garantizar la continuidad del negocio.\", \"Los requisitos de contraseña para empleados son mínimos, lo que podría permitir a un actor amenazante acceder más fácilmente a datos seguros u otros activos a través del equipo de trabajo o la red interna.\", \"Debe implementarse para reducir la posibilidad de fraude o acceso a datos críticos, ya que el CEO de la empresa actualmente gestiona las operaciones diarias y la nómina.\", \"El firewall existente bloquea el tráfico basándose en un conjunto de reglas de seguridad adecuadamente definidas.\", \"El departamento de IT necesita un IDS para ayudar a identificar posibles intrusiones de actores amenazantes.\", \"El departamento de IT necesita tener copias de seguridad de datos críticos en caso de una brecha de seguridad para garantizar la continuidad del negocio.\", \"El software antivirus se instala y supervisa regularmente por el departamento de IT.\", \"La lista de activos señala el uso de sistemas heredados. La evaluación de riesgos indica que estos sistemas están monitorizados y mantenidos, pero no existe un calendario regular para esta tarea y los procedimientos/políticas relacionadas con la intervención no están claros, lo que podría poner estos sistemas en riesgo de una brecha.\", \"Actualmente, no se utiliza cifrado; Implementarlo proporcionaría mayor confidencialidad de la información sensible.\", \"Actualmente no existe un sistema de gestión de contraseñas; implementar este control mejoraría la productividad del departamento de IT y de otros empleados en caso de problemas con la contraseña.\", \"La ubicación física de la tienda, que incluye las oficinas principales, la fachada y el almacén de productos, cuenta con suficientes cerraduras.\", \"Las cámaras de seguridad están instaladas y funcionando en la ubicación física de la tienda.\", \"La ubicación física de 'Llave del Chaco' cuenta con un sistema funcional de detección y prevención de incendios.\"]\n",
+        "}\n",
+        "tabla_control = pd.DataFrame(data_control)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_control.style.hide(axis=\"index\"))\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 558
+        },
+        "id": "puppee1edmTB",
+        "outputId": "556a0bf7-41d9-4a24-bc26-65d8f1656140"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<pandas.io.formats.style.Styler at 0x78202e064500>"
+            ],
+            "text/html": [
+              "<style type=\"text/css\">\n",
+              "</style>\n",
+              "<table id=\"T_73d5d\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr>\n",
+              "      <th id=\"T_73d5d_level0_col0\" class=\"col_heading level0 col0\" >Si</th>\n",
+              "      <th id=\"T_73d5d_level0_col1\" class=\"col_heading level0 col1\" >No</th>\n",
+              "      <th id=\"T_73d5d_level0_col2\" class=\"col_heading level0 col2\" >Control</th>\n",
+              "      <th id=\"T_73d5d_level0_col3\" class=\"col_heading level0 col3\" >Explicación</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row0_col0\" class=\"data row0 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row0_col1\" class=\"data row0 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row0_col2\" class=\"data row0 col2\" >Privilegio Mínimo</td>\n",
+              "      <td id=\"T_73d5d_row0_col3\" class=\"data row0 col3\" >Actualmente, todos los empleados tienen acceso a los datos de los clientes; Los privilegios deben limitarse para reducir el riesgo de una brecha.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row1_col0\" class=\"data row1 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row1_col1\" class=\"data row1 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row1_col2\" class=\"data row1 col2\" >Planes de recuperación ante desastres</td>\n",
+              "      <td id=\"T_73d5d_row1_col3\" class=\"data row1 col3\" >No existen planes de recuperación ante desastres. Estas deben implementarse para garantizar la continuidad del negocio.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row2_col0\" class=\"data row2 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row2_col1\" class=\"data row2 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row2_col2\" class=\"data row2 col2\" >Políticas de contraseñas</td>\n",
+              "      <td id=\"T_73d5d_row2_col3\" class=\"data row2 col3\" >Los requisitos de contraseña para empleados son mínimos, lo que podría permitir a un actor amenazante acceder más fácilmente a datos seguros u otros activos a través del equipo de trabajo o la red interna.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row3_col0\" class=\"data row3 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row3_col1\" class=\"data row3 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row3_col2\" class=\"data row3 col2\" >Separación de funciones</td>\n",
+              "      <td id=\"T_73d5d_row3_col3\" class=\"data row3 col3\" >Debe implementarse para reducir la posibilidad de fraude o acceso a datos críticos, ya que el CEO de la empresa actualmente gestiona las operaciones diarias y la nómina.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row4_col0\" class=\"data row4 col0\" >X</td>\n",
+              "      <td id=\"T_73d5d_row4_col1\" class=\"data row4 col1\" ></td>\n",
+              "      <td id=\"T_73d5d_row4_col2\" class=\"data row4 col2\" >Firewall</td>\n",
+              "      <td id=\"T_73d5d_row4_col3\" class=\"data row4 col3\" >El firewall existente bloquea el tráfico basándose en un conjunto de reglas de seguridad adecuadamente definidas.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row5_col0\" class=\"data row5 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row5_col1\" class=\"data row5 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row5_col2\" class=\"data row5 col2\" >Sistema de detección de intrusiones (IDS)</td>\n",
+              "      <td id=\"T_73d5d_row5_col3\" class=\"data row5 col3\" >El departamento de IT necesita un IDS para ayudar a identificar posibles intrusiones de actores amenazantes.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row6_col0\" class=\"data row6 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row6_col1\" class=\"data row6 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row6_col2\" class=\"data row6 col2\" >Backups</td>\n",
+              "      <td id=\"T_73d5d_row6_col3\" class=\"data row6 col3\" >El departamento de IT necesita tener copias de seguridad de datos críticos en caso de una brecha de seguridad para garantizar la continuidad del negocio.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row7_col0\" class=\"data row7 col0\" >X</td>\n",
+              "      <td id=\"T_73d5d_row7_col1\" class=\"data row7 col1\" ></td>\n",
+              "      <td id=\"T_73d5d_row7_col2\" class=\"data row7 col2\" >Software antivirus</td>\n",
+              "      <td id=\"T_73d5d_row7_col3\" class=\"data row7 col3\" >El software antivirus se instala y supervisa regularmente por el departamento de IT.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row8_col0\" class=\"data row8 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row8_col1\" class=\"data row8 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row8_col2\" class=\"data row8 col2\" >Monitorización, mantenimiento e intervención manuales para sistemas heredados</td>\n",
+              "      <td id=\"T_73d5d_row8_col3\" class=\"data row8 col3\" >La lista de activos señala el uso de sistemas heredados. La evaluación de riesgos indica que estos sistemas están monitorizados y mantenidos, pero no existe un calendario regular para esta tarea y los procedimientos/políticas relacionadas con la intervención no están claros, lo que podría poner estos sistemas en riesgo de una brecha.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row9_col0\" class=\"data row9 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row9_col1\" class=\"data row9 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row9_col2\" class=\"data row9 col2\" >Cifrado</td>\n",
+              "      <td id=\"T_73d5d_row9_col3\" class=\"data row9 col3\" >Actualmente, no se utiliza cifrado; Implementarlo proporcionaría mayor confidencialidad de la información sensible.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row10_col0\" class=\"data row10 col0\" ></td>\n",
+              "      <td id=\"T_73d5d_row10_col1\" class=\"data row10 col1\" >X</td>\n",
+              "      <td id=\"T_73d5d_row10_col2\" class=\"data row10 col2\" >Sistema de gestión de contraseñas</td>\n",
+              "      <td id=\"T_73d5d_row10_col3\" class=\"data row10 col3\" >Actualmente no existe un sistema de gestión de contraseñas; implementar este control mejoraría la productividad del departamento de IT y de otros empleados en caso de problemas con la contraseña.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row11_col0\" class=\"data row11 col0\" >X</td>\n",
+              "      <td id=\"T_73d5d_row11_col1\" class=\"data row11 col1\" ></td>\n",
+              "      <td id=\"T_73d5d_row11_col2\" class=\"data row11 col2\" >Cerraduras (oficinas, escaparate, almacén)</td>\n",
+              "      <td id=\"T_73d5d_row11_col3\" class=\"data row11 col3\" >La ubicación física de la tienda, que incluye las oficinas principales, la fachada y el almacén de productos, cuenta con suficientes cerraduras.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row12_col0\" class=\"data row12 col0\" >x</td>\n",
+              "      <td id=\"T_73d5d_row12_col1\" class=\"data row12 col1\" ></td>\n",
+              "      <td id=\"T_73d5d_row12_col2\" class=\"data row12 col2\" >Vigilancia por circuito cerrado de televisión (CCTV)</td>\n",
+              "      <td id=\"T_73d5d_row12_col3\" class=\"data row12 col3\" >Las cámaras de seguridad están instaladas y funcionando en la ubicación física de la tienda.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_73d5d_row13_col0\" class=\"data row13 col0\" >X</td>\n",
+              "      <td id=\"T_73d5d_row13_col1\" class=\"data row13 col1\" ></td>\n",
+              "      <td id=\"T_73d5d_row13_col2\" class=\"data row13 col2\" >Detección/prevención de incendios (alarma de incendios, sistema de rociadores, etc.)</td>\n",
+              "      <td id=\"T_73d5d_row13_col3\" class=\"data row13 col3\" >La ubicación física de 'Llave del Chaco' cuenta con un sistema funcional de detección y prevención de incendios.</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n"
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "-8FARFOhiikj"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Evaluacion de controles**"
+      ],
+      "metadata": {
+        "id": "Oh-KQPIRirwG"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*Estándar de Seguridad de Datos de la Industria de Tarjetas de Pago (PCI DSS)*"
+      ],
+      "metadata": {
+        "id": "Jpnt8L_HjLyb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_compliance = {\n",
+        "    \"Si\": [\"\", \"\", \"\", \"\"],\n",
+        "    \"No\": [\"X\", \"X\", \"X\", \"X\"],\n",
+        "    \"Buenas Practicas\": [\"Solo los usuarios autorizados tienen acceso a la información de las tarjetas de crédito de los clientes.\", \"La información de la tarjeta de crédito se acepta, procesa, transmite y almacena internamente, en un entorno seguro.\", \"Implementa procedimientos de cifrado de datos para proteger mejor los puntos de contacto y datos de las transacciones con tarjeta de crédito.\", \"Adopta políticas seguras de gestión de contraseñas.\"],\n",
+        "    \"Explicación\": [\"Actualmente, todos los empleados tienen acceso a los datos internos de la empresa.\", \"La información de las tarjetas de crédito no está cifrada y todos los empleados tienen acceso actualmente a datos internos, incluida la información de las tarjetas de crédito de los clientes.\", \"Actualmente, la empresa no utiliza cifrado para garantizar mejor la confidencialidad de la información financiera de los clientes.\", \"Las políticas de contraseñas son nominales y actualmente no existe ningún sistema de gestión de contraseñas.\"]\n",
+        "}\n",
+        "tabla_compliance = pd.DataFrame(data_compliance)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_compliance.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 210
+        },
+        "id": "PX2CO2gjdnI2",
+        "outputId": "80215909-9ce1-411c-a46e-855187299975"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<pandas.io.formats.style.Styler at 0x78202e064500>"
+            ],
+            "text/html": [
+              "<style type=\"text/css\">\n",
+              "</style>\n",
+              "<table id=\"T_64ab9\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr>\n",
+              "      <th id=\"T_64ab9_level0_col0\" class=\"col_heading level0 col0\" >Si</th>\n",
+              "      <th id=\"T_64ab9_level0_col1\" class=\"col_heading level0 col1\" >No</th>\n",
+              "      <th id=\"T_64ab9_level0_col2\" class=\"col_heading level0 col2\" >Buenas Practicas</th>\n",
+              "      <th id=\"T_64ab9_level0_col3\" class=\"col_heading level0 col3\" >Explicación</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <td id=\"T_64ab9_row0_col0\" class=\"data row0 col0\" ></td>\n",
+              "      <td id=\"T_64ab9_row0_col1\" class=\"data row0 col1\" >X</td>\n",
+              "      <td id=\"T_64ab9_row0_col2\" class=\"data row0 col2\" >Solo los usuarios autorizados tienen acceso a la información de las tarjetas de crédito de los clientes.</td>\n",
+              "      <td id=\"T_64ab9_row0_col3\" class=\"data row0 col3\" >Actualmente, todos los empleados tienen acceso a los datos internos de la empresa.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_64ab9_row1_col0\" class=\"data row1 col0\" ></td>\n",
+              "      <td id=\"T_64ab9_row1_col1\" class=\"data row1 col1\" >X</td>\n",
+              "      <td id=\"T_64ab9_row1_col2\" class=\"data row1 col2\" >La información de la tarjeta de crédito se acepta, procesa, transmite y almacena internamente, en un entorno seguro.</td>\n",
+              "      <td id=\"T_64ab9_row1_col3\" class=\"data row1 col3\" >La información de las tarjetas de crédito no está cifrada y todos los empleados tienen acceso actualmente a datos internos, incluida la información de las tarjetas de crédito de los clientes.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_64ab9_row2_col0\" class=\"data row2 col0\" ></td>\n",
+              "      <td id=\"T_64ab9_row2_col1\" class=\"data row2 col1\" >X</td>\n",
+              "      <td id=\"T_64ab9_row2_col2\" class=\"data row2 col2\" >Implementa procedimientos de cifrado de datos para proteger mejor los puntos de contacto y datos de las transacciones con tarjeta de crédito.</td>\n",
+              "      <td id=\"T_64ab9_row2_col3\" class=\"data row2 col3\" >Actualmente, la empresa no utiliza cifrado para garantizar mejor la confidencialidad de la información financiera de los clientes.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_64ab9_row3_col0\" class=\"data row3 col0\" ></td>\n",
+              "      <td id=\"T_64ab9_row3_col1\" class=\"data row3 col1\" >X</td>\n",
+              "      <td id=\"T_64ab9_row3_col2\" class=\"data row3 col2\" >Adopta políticas seguras de gestión de contraseñas.</td>\n",
+              "      <td id=\"T_64ab9_row3_col3\" class=\"data row3 col3\" >Las políticas de contraseñas son nominales y actualmente no existe ningún sistema de gestión de contraseñas.</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n"
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*Reglamento General de Protección de Datos (RGPD)*"
+      ],
+      "metadata": {
+        "id": "ViDUoibEkmz9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_rgpd = {\n",
+        "    \"Si\": [\"\", \"X\", \"\", \"X\"],\n",
+        "    \"No\": [\"X\", \"\", \"X\", \"\"],\n",
+        "    \"Buenas Practicas\": [\"Los datos de los clientes de la UE se mantienen privados y protegidos.\", \"Existe un plan para notificar a los clientes de la UE en un plazo de 72 horas si sus datos son comprometidos o hay una brecha.\", \"Asegúrate de que los datos estén correctamente clasificados e inventariados.\", \"Hacer cumplir políticas, procedimientos y procesos de privacidad para documentar y mantener correctamente los datos.\"],\n",
+        "    \"Explicación\": [\"Actualmente, la empresa no utiliza cifrado para garantizar mejor la confidencialidad de la información financiera de los clientes.\", \"Existe un plan para notificar a los clientes de la UE en un plazo de 72 horas tras una brecha de datos.\", \"Los activos actuales han sido inventariados/listados, pero no clasificados.\", \"Se han desarrollado y aplicado políticas de privacidad, procedimientos y procesos entre los miembros del equipo de IT y otros empleados, según sea necesario.\"]\n",
+        "}\n",
+        "tabla_rgpd = pd.DataFrame(data_rgpd)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_rgpd.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 210
+        },
+        "id": "ZKuNhfACiqzx",
+        "outputId": "06effb55-b0b1-48c5-a1f2-87ffb248e49a"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<pandas.io.formats.style.Styler at 0x78202e064500>"
+            ],
+            "text/html": [
+              "<style type=\"text/css\">\n",
+              "</style>\n",
+              "<table id=\"T_7111f\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr>\n",
+              "      <th id=\"T_7111f_level0_col0\" class=\"col_heading level0 col0\" >Si</th>\n",
+              "      <th id=\"T_7111f_level0_col1\" class=\"col_heading level0 col1\" >No</th>\n",
+              "      <th id=\"T_7111f_level0_col2\" class=\"col_heading level0 col2\" >Buenas Practicas</th>\n",
+              "      <th id=\"T_7111f_level0_col3\" class=\"col_heading level0 col3\" >Explicación</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <td id=\"T_7111f_row0_col0\" class=\"data row0 col0\" ></td>\n",
+              "      <td id=\"T_7111f_row0_col1\" class=\"data row0 col1\" >X</td>\n",
+              "      <td id=\"T_7111f_row0_col2\" class=\"data row0 col2\" >Los datos de los clientes de la UE se mantienen privados y protegidos.</td>\n",
+              "      <td id=\"T_7111f_row0_col3\" class=\"data row0 col3\" >Actualmente, la empresa no utiliza cifrado para garantizar mejor la confidencialidad de la información financiera de los clientes.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_7111f_row1_col0\" class=\"data row1 col0\" >X</td>\n",
+              "      <td id=\"T_7111f_row1_col1\" class=\"data row1 col1\" ></td>\n",
+              "      <td id=\"T_7111f_row1_col2\" class=\"data row1 col2\" >Existe un plan para notificar a los clientes de la UE en un plazo de 72 horas si sus datos son comprometidos o hay una brecha.</td>\n",
+              "      <td id=\"T_7111f_row1_col3\" class=\"data row1 col3\" >Existe un plan para notificar a los clientes de la UE en un plazo de 72 horas tras una brecha de datos.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_7111f_row2_col0\" class=\"data row2 col0\" ></td>\n",
+              "      <td id=\"T_7111f_row2_col1\" class=\"data row2 col1\" >X</td>\n",
+              "      <td id=\"T_7111f_row2_col2\" class=\"data row2 col2\" >Asegúrate de que los datos estén correctamente clasificados e inventariados.</td>\n",
+              "      <td id=\"T_7111f_row2_col3\" class=\"data row2 col3\" >Los activos actuales han sido inventariados/listados, pero no clasificados.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_7111f_row3_col0\" class=\"data row3 col0\" >X</td>\n",
+              "      <td id=\"T_7111f_row3_col1\" class=\"data row3 col1\" ></td>\n",
+              "      <td id=\"T_7111f_row3_col2\" class=\"data row3 col2\" >Hacer cumplir políticas, procedimientos y procesos de privacidad para documentar y mantener correctamente los datos.</td>\n",
+              "      <td id=\"T_7111f_row3_col3\" class=\"data row3 col3\" >Se han desarrollado y aplicado políticas de privacidad, procedimientos y procesos entre los miembros del equipo de IT y otros empleados, según sea necesario.</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n"
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*Controles de Sistemas y Organizaciones (SOC tipo 1, SOC tipo 2)*"
+      ],
+      "metadata": {
+        "id": "kLq4A47hl-s-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_soc = {\n",
+        "    \"Sí\": [\"\", \"\", \"X\", \"\"],\n",
+        "    \"No\": [\"X\", \"X\", \"\", \"X\"],\n",
+        "    \"Buenas prácticas\": [\n",
+        "        \"Se establecen las políticas de acceso de usuario.\",\n",
+        "        \"Los datos sensibles (PII/SPII) son confidenciales/privados.\",\n",
+        "        \"La integridad de los datos garantiza que los datos sean consistentes, completos, precisos y hayan sido validados.\",\n",
+        "        \"Los datos están disponibles para las personas autorizadas a acceder a ellos.\"\n",
+        "    ],\n",
+        "    \"Explicación\": [\n",
+        "        \"Actualmente, no existen controles de Privilegio Mínimo ni de separación de funciones; Todos los empleados tienen acceso a los datos almacenados internamente.\",\n",
+        "        \"Actualmente, el cifrado no se utiliza para garantizar mejor la confidencialidad de la PII/SPII.\",\n",
+        "        \"La integridad de los datos está en marcha.\",\n",
+        "        \"Aunque los datos están disponibles para todos los empleados, la autorización debe limitarse solo a las personas que necesitan acceso para realizar su trabajo.\"\n",
+        "    ]\n",
+        "}\n",
+        "tabla_soc = pd.DataFrame(data_soc)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_soc.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 227
+        },
+        "id": "-Lq7NdLXlkbA",
+        "outputId": "7695d50b-4620-44b4-8953-635ccf88be4b"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<pandas.io.formats.style.Styler at 0x78202e0f99a0>"
+            ],
+            "text/html": [
+              "<style type=\"text/css\">\n",
+              "</style>\n",
+              "<table id=\"T_75c17\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr>\n",
+              "      <th id=\"T_75c17_level0_col0\" class=\"col_heading level0 col0\" >Sí</th>\n",
+              "      <th id=\"T_75c17_level0_col1\" class=\"col_heading level0 col1\" >No</th>\n",
+              "      <th id=\"T_75c17_level0_col2\" class=\"col_heading level0 col2\" >Buenas prácticas</th>\n",
+              "      <th id=\"T_75c17_level0_col3\" class=\"col_heading level0 col3\" >Explicación</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <td id=\"T_75c17_row0_col0\" class=\"data row0 col0\" ></td>\n",
+              "      <td id=\"T_75c17_row0_col1\" class=\"data row0 col1\" >X</td>\n",
+              "      <td id=\"T_75c17_row0_col2\" class=\"data row0 col2\" >Se establecen las políticas de acceso de usuario.</td>\n",
+              "      <td id=\"T_75c17_row0_col3\" class=\"data row0 col3\" >Actualmente, no existen controles de Privilegio Mínimo ni de separación de funciones; Todos los empleados tienen acceso a los datos almacenados internamente.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_75c17_row1_col0\" class=\"data row1 col0\" ></td>\n",
+              "      <td id=\"T_75c17_row1_col1\" class=\"data row1 col1\" >X</td>\n",
+              "      <td id=\"T_75c17_row1_col2\" class=\"data row1 col2\" >Los datos sensibles (PII/SPII) son confidenciales/privados.</td>\n",
+              "      <td id=\"T_75c17_row1_col3\" class=\"data row1 col3\" >Actualmente, el cifrado no se utiliza para garantizar mejor la confidencialidad de la PII/SPII.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_75c17_row2_col0\" class=\"data row2 col0\" >X</td>\n",
+              "      <td id=\"T_75c17_row2_col1\" class=\"data row2 col1\" ></td>\n",
+              "      <td id=\"T_75c17_row2_col2\" class=\"data row2 col2\" >La integridad de los datos garantiza que los datos sean consistentes, completos, precisos y hayan sido validados.</td>\n",
+              "      <td id=\"T_75c17_row2_col3\" class=\"data row2 col3\" >La integridad de los datos está en marcha.</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <td id=\"T_75c17_row3_col0\" class=\"data row3 col0\" ></td>\n",
+              "      <td id=\"T_75c17_row3_col1\" class=\"data row3 col1\" >X</td>\n",
+              "      <td id=\"T_75c17_row3_col2\" class=\"data row3 col2\" >Los datos están disponibles para las personas autorizadas a acceder a ellos.</td>\n",
+              "      <td id=\"T_75c17_row3_col3\" class=\"data row3 col3\" >Aunque los datos están disponibles para todos los empleados, la autorización debe limitarse solo a las personas que necesitan acceso para realizar su trabajo.</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n"
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Recomendaciones:**\n",
+        "Es necesario implementar múltiples controles para mejorar la postura de seguridad de 'La Llave del Chaco' y garantizar mejor la confidencialidad de la información sensible, incluyendo: **Privilegio Mínimo**, **planes de recuperación ante desastres**, **políticas de contraseñas**, **separación de funciones**, un **IDS**, **gestión continua del sistema heredado**, **cifrado** y un **sistema de gestión de contraseñas**.\n",
+        "\n",
+        "Para abordar las lagunas en el cumplimiento, 'La Llave del Chaco' necesita implementar controles como el Privilegio Mínimo, la separación de funciones y el cifrado. La empresa también necesita clasificar adecuadamente los activos, identificar controles adicionales que puedan necesitar implementarse para mejorar su postura de seguridad y proteger mejor la información sensible.\n"
+      ],
+      "metadata": {
+        "id": "8H6OzgE5mZk-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "syxFfd6mmQGL"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
