@@ -1,0 +1,40 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#**Resumen Profesional**\n",
+        "\n",
+        "I'm **Christian**. I combine experience in data analysis with professional training in cybersecurity. I enjoy breaking down complex problems, designing data-driven detections, and collaborating to strengthen controls and incident response.\n",
+        "\n",
+        "I'm **Data Analyst** with hands-on experience in Microsoft Excel, SQL, Python, and data visualization. I have an analytical mindset focused on problem-solving and transforming data into actionable decisions. I'm currently transitioning into Cybersecurity by completing the Google Professional Certificate in Cybersecurity on Coursera, gaining a foundation in risk management, security controls, incident response, and operational best practices. I'm seeking an entry-level cybersecurity position where I can apply my data analysis skills to detect anomalies, automate monitoring processes, and improve an organization's security posture."
+      ],
+      "metadata": {
+        "id": "ctS8UfBwnlQo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "rMh9aAOMnko8"
+      },
+      "outputs": [],
+      "source": []
+    }
+  ]
+}
