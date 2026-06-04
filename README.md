@@ -13,7 +13,7 @@ Cada proyecto cuenta con documentación en ambos idiomas para facilitar el apren
 
 # 📂 CyberSecurityProjects
 
-Welcome to **DataProjects**, the space where I bring together all my data analysis projects. Here you will find my reports that I prepared while certifying my knowledge, SIEM tools (Security Information and Event Management) for log analysis and much more, each with Spanish and English versions.  
+Welcome to **CyberSecurityProjects**, the space where I bring together all my data analysis projects. Here you will find my reports that I prepared while certifying my knowledge, SIEM tools (Security Information and Event Management) for log analysis and much more, each with Spanish and English versions.  
 
 ## 🔎 What will you find here?  
 - 📒 **Documentation** → Reviews, use cases, strategies.  
