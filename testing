@@ -1,0 +1,205 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#**Learning Exercises**\n",
+        "\n",
+        "###**01_Controls and Compliance**\n",
+        "\n",
+        "####Does 'La Llave del Chaco' currently have this control active?"
+      ],
+      "metadata": {
+        "id": "9GXrjE4yYgMh"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Evaluation of controls**"
+      ],
+      "metadata": {
+        "id": "6uOa592Xinh1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "from IPython.display import display\n",
+        "\n",
+        "data_control = {\n",
+        "    \"Yes\": [\"\", \"\", \"\", \"\", \"X\", \"\", \"\", \"X\", \"\", \"\", \"\", \"X\", \"x\", \"X\"],\n",
+        "    \"No\": [\"X\", \"X\", \"X\", \"X\", \"\", \"X\", \"X\", \"\", \"X\", \"X\", \"X\", \"\", \"\", \"\"],\n",
+        "    \"Control\": [\"Least Privilege\", \"Disaster recovery plans\", \"Password policies\", \"Separation of duties\", \"Firewall\", \"Intrusion Detection System (IDS)\", \"Backups\", \"Antivirus software\", \"Monitoring, maintenance and manual intervention for legacy systems\", \"Encryption\", \"Password management system\", \"Locks (offices, storefront, warehouse)\", \"Closed-circuit television (CCTV) surveillance\", \"Fire detection/prevention (fire alarm, sprinkler system, etc.)\"],\n",
+        "    \"Explanation\": [\"Currently, all employees have access to customer data; privileges must be limited to reduce the risk of a breach.\", \"There are no disaster recovery plans. These must be implemented to ensure business continuity.\", \"Password requirements for employees are minimal, which could allow a threat actor to more easily access secure data or other assets via work equipment or the internal network.\", \"Must be implemented to reduce the possibility of fraud or access to critical data, as the company CEO currently manages daily operations and payroll.\", \"The existing firewall blocks traffic based on a properly defined set of security rules.\", \"The IT department needs an IDS to help identify potential intrusions by threat actors.\", \"The IT department needs to have backups of critical data in case of a security breach to ensure business continuity.\", \"Antivirus software is installed and monitored regularly by the IT department.\", \"The asset list notes the use of legacy systems. Risk assessment indicates these systems are monitored and maintained, but there is no regular schedule for this task and procedures/policies related to intervention are unclear, which could put these systems at risk of a breach.\", \"Currently, encryption is not used; implementing it would provide greater confidentiality of sensitive information.\", \"There is currently no password management system; implementing this control would improve the productivity of the IT department and other employees in case of password issues.\", \"The physical store location, which includes the main offices, the storefront, and the product warehouse, has sufficient locks.\", \"Security cameras are installed and functioning at the physical store location.\", \"The physical location of 'Llave del Chaco' has a functional fire detection and prevention system.\"]\n",
+        "}\n",
+        "tabla_control = pd.DataFrame(data_control)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_control.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 558
+        },
+        "id": "puppee1edmTB",
+        "outputId": "556a0bf7-41d9-4a24-bc26-65d8f1656140"
+      },
+      "execution_count": 22,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Evaluation of controls**"
+      ],
+      "metadata": {
+        "id": "Oh-KQPIRirwG"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*Payment Card Industry Data Security Standard (PCI DSS)*"
+      ],
+      "metadata": {
+        "id": "Jpnt8L_HjLyb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_compliance = {\n",
+        "    \"Yes\": [\"\", \"\", \"\", \"\"],\n",
+        "    \"No\": [\"X\", \"X\", \"X\", \"X\"],\n",
+        "    \"Best Practices\": [\"Only authorized users have access to customer credit card information.\", \"Credit card information is accepted, processed, transmitted, and stored internally, in a secure environment.\", \"Implement data encryption procedures to better protect contact points and credit card transaction data.\", \"Adopt secure password management policies.\"],\n",
+        "    \"Explanation\": [\"Currently, all employees have access to internal company data.\", \"Credit card information is not encrypted and all employees currently have access to internal data, including customer credit card information.\", \"Currently, the company does not use encryption to better ensure the confidentiality of customer financial information.\", \"Password policies are nominal and there is currently no password management system.\"]\n",
+        "}\n",
+        "tabla_compliance = pd.DataFrame(data_compliance)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_compliance.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 210
+        },
+        "id": "PX2CO2gjdnI2",
+        "outputId": "80215909-9ce1-411c-a46e-855187299975"
+      },
+      "execution_count": 21,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*General Data Protection Regulation (GDPR)*"
+      ],
+      "metadata": {
+        "id": "ViDUoibEkmz9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_rgpd = {\n",
+        "    \"Yes\": [\"\", \"X\", \"\", \"X\"],\n",
+        "    \"No\": [\"X\", \"\", \"X\", \"\"],\n",
+        "    \"Best Practices\": [\"EU customer data is kept private and protected.\", \"There is a plan to notify EU customers within 72 hours if their data is compromised or there is a breach.\", \"Ensure that data is properly classified and inventoried.\", \"Enforce privacy policies, procedures, and processes to properly document and maintain data.\"],\n",
+        "    \"Explanation\": [\"Currently, the company does not use encryption to better ensure the confidentiality of customer financial information.\", \"There is a plan to notify EU customers within 72 hours of a data breach.\", \"Current assets have been inventoried/listed, but not classified.\", \"Privacy policies, procedures, and processes have been developed and enforced among IT team members and other employees, as needed.\"]\n",
+        "}\n",
+        "tabla_rgpd = pd.DataFrame(data_rgpd)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_rgpd.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 210
+        },
+        "id": "ZKuNhfACiqzx",
+        "outputId": "06effb55-b0b1-48c5-a1f2-87ffb248e49a"
+      },
+      "execution_count": 20,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*System and Organization Controls (SOC type 1, SOC type 2)*"
+      ],
+      "metadata": {
+        "id": "kLq4A47hl-s-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_soc = {\n",
+        "    \"Yes\": [\"\", \"\", \"X\", \"\"],\n",
+        "    \"No\": [\"X\", \"X\", \"\", \"X\"],\n",
+        "    \"Best Practices\": [\n",
+        "        \"User access policies are established.\",\n",
+        "        \"Sensitive data (PII/SPII) is confidential/private.\",\n",
+        "        \"Data integrity ensures that data is consistent, complete, accurate, and has been validated.\",\n",
+        "        \"Data is available to the persons authorized to access it.\"\n",
+        "    ],\n",
+        "    \"Explanation\": [\n",
+        "        \"Currently, there are no Least Privilege or separation of duties controls; all employees have access to data stored internally.\",\n",
+        "        \"Currently, encryption is not used to better ensure the confidentiality of PII/SPII.\",\n",
+        "        \"Data integrity is in progress.\",\n",
+        "        \"Although data is available to all employees, authorization should be limited only to persons who need access to perform their job.\"\n",
+        "    ]\n",
+        "}\n",
+        "tabla_soc = pd.DataFrame(data_soc)\n",
+        "\n",
+        "pd.set_option('display.max_colwidth', None)\n",
+        "\n",
+        "display(tabla_soc.style.hide(axis=\"index\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 227
+        },
+        "id": "-Lq7NdLXlkbA",
+        "outputId": "7695d50b-4620-44b4-8953-635ccf88be4b"
+      },
+      "execution_count": 23,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Recommendations:**\n",
+        "It is necessary to implement multiple controls to improve the security posture of 'La Llave del Chaco' and better ensure the confidentiality of sensitive information, including: **Least Privilege**, **disaster recovery plans**, **password policies**, **separation of duties**, an **IDS**, **continuous management of legacy systems**, **encryption**, and a **password management system**.\n",
+        "\n",
+        "To address compliance gaps, 'La Llave del Chaco' needs to implement controls such as Least Privilege, separation of duties, and encryption. The company also needs to properly classify assets, identify additional controls that may need to be implemented to improve its security posture, and better protect sensitive information."
+      ],
+      "metadata": {
+        "id": "8H6OzgE5mZk-"
+      }
+    }
+  ]
+}
